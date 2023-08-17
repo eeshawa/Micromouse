@@ -6,7 +6,7 @@ import numpy as np
 import turtle
 t=turtle.Pen()
 
-index = 1 
+index = 3
 # load data in
 Hwalls = []
 pickle_in = open(f'design/H{index}.csv','rb')
@@ -15,6 +15,7 @@ Hwalls = pickle.load(pickle_in)
 Vwalls = []
 pickle_in = open(f'design/V{index}.csv','rb')
 Vwalls = pickle.load(pickle_in)
+
 '''
 Hwalls=np.zeros(210, dtype=int).reshape(15,14)
 Hwalls[0,:]=1
@@ -151,8 +152,6 @@ def predict_move():
         print('move south')
         turns=2
 
-
-
 def wall_detection():
     if dir==0:
         vwall_senosr[x][y]=Vwalls[x][y]
@@ -214,6 +213,7 @@ def draw_path():
     t.fd(25)
     t.pencolor(1,1,1)
     t.fd(10)
+
 def draw_path_reverse():
     t.pencolor(1,0,0)
     t.right(90*(turns-dir))
@@ -237,7 +237,7 @@ def turtle_placement():
     t.right(180)
 
 turtle_placement()
-for i in range(3):
+for i in range(3):    
     run_floodfill()
     while ffill[x][y]!=0:
         predict_move()
@@ -265,10 +265,8 @@ for i in range(3):
     print(ffill)
     print('Congratz , You have reached the Start point')
     time.sleep(1)
-
 t.pencolor('red')
 time.sleep(1)
-
 
 print('Final run is about start in 2s')
 time.sleep(2)
