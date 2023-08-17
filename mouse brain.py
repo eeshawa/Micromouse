@@ -4,7 +4,7 @@ import pickle
 import time
 import numpy as np
 import turtle
-t=turtle.Pen()
+#t=turtle.Pen()
 
 index = 3
 # load data in
